@@ -1,0 +1,24 @@
+<%= form_with model: login do |form| %>
+  <% if form.object.errors.any? %>
+    <% form.object.errors.full_messages.each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+  <div>
+    <%= form.label :password %>
+    <%= form.text_field :password %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

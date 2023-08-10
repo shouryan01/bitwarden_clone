@@ -1,4 +1,7 @@
 <h1>Bitwarden Clone</h1>
+<%= link_to "New Login", new_login_path %>
+<br />
+<br />
 <%= @logins.each do |login| %>
-  <%= password.name %>
+  <%= login.name %>
 <% end %>
