@@ -2,6 +2,6 @@
 <%= link_to "New Login", new_login_path %>
 <br />
 <br />
-<%= @logins.each do |login| %>
-  <%= login.name %>
-<% end %>
+<div>
+  <%= render @logins %>
+</div>

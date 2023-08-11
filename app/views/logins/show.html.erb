@@ -1,3 +1,6 @@
 <h1><%= @login.name %></h1>
-<h2>Username: <%= @login.username %></h2>
-<h2>Password: <%= @login.password %></h2>
+<%= link_to "Edit", edit_login_path %>
+<h6  class="mb-1">Username</h6>
+<pre class="mt-0"><code><%= @login.username %></code></pre>
+<h6 class="mb-1">Password</h6>
+<pre class="mt-0"><code><%= @login.password %></code></pre>

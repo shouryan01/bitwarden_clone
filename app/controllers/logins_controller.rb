@@ -22,6 +22,22 @@ class LoginsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @login.update(login_params)
+      redirect_to @login
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @login.destroy
+    redirect_to root_path
+  end
+
   private
 
   def login_params

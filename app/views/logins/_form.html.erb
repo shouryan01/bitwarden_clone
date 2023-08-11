@@ -20,5 +20,7 @@
   </div>
   <div>
     <%= form.submit %>
+    <%= button_tag "Delete", form: "delete_login" %>
   </div>
 <% end %>
+<%= form_with model: login, method: :delete, id: "delete_login", data: {turbo_confirm: "Are you sure?"} %>
