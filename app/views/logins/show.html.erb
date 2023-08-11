@@ -1,6 +1,8 @@
-<h1><%= @login.name %></h1>
-<%= link_to "Edit", edit_login_path %>
-<h6  class="mb-1">Username</h6>
+<div class="flex justify-between items-center mb-10">
+  <h1 class="mb-0"><%= @login.name %></h1>
+  <%= link_to "Edit 🖊️", edit_login_path, class: "no-underline hover:underline" %>
+</div>
+<h6>Username</h6>
 <pre class="mt-0"><code><%= @login.username %></code></pre>
-<h6 class="mb-1">Password</h6>
+<h6>Password</h6>
 <pre class="mt-0"><code><%= @login.password %></code></pre>
