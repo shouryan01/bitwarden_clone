@@ -1,0 +1,15 @@
+<%= form_with model: user_login, url: login_shares_path(login) do |form| %>
+  <div>
+    <%= form.label :user_id %>
+    <%= form.collection_select :user_id, login.shareable_users, :id, :email %>
+  </div>
+
+  <div>
+    <%= form.label :role %>
+    <%= form.select :role, UserLogin::ROLES.map{ |r| [r.titleize, r ]} %>
+  </div>
+
+  <div>
+    <%= form.submit "Share" %>
+  </div>
+<% end %>

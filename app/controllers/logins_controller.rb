@@ -1,6 +1,8 @@
 class LoginsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_login, except: [:index, :new, :create]
+  before_action :require_editor_permissions, only: [:edit, :update]
+  before_action :require_owner_permissions, only: [:destroy]
 
   def index
     @logins = current_user.logins
@@ -14,8 +16,9 @@ class LoginsController < ApplicationController
   end
 
   def create
-    @login = current_user.logins.create(login_params)
-    if @login.persisted?
+    @login = Login.new(login_params)
+    @login.user_logins.new(user: current_user, role: :owner)
+    if @login.save
       redirect_to @login
     else
       render :new, status: :unprocessable_entity
@@ -46,5 +49,13 @@ class LoginsController < ApplicationController
 
   def set_login
     @login = current_user.logins.find(params[:id])
+  end
+
+  def require_editor_permissions
+    redirect_to @login unless @login.editable_by?(current_user)
+  end
+
+  def require_owner_permissions
+    redirect_to @login unless @login.editable_by?(current_user)
   end
 end
