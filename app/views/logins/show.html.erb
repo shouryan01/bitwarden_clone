@@ -9,7 +9,7 @@
       <% end %>
   </h1>
   <div>
-    <%= link_to "Edit 🖊️", edit_login_path(@login) if @login.editable_by?(current_user) %>
+    <%= link_to "Edit 🖊️", edit_login_path(@login) if current_user_login.editable? %>
 <!--    , class: "no-underline hover:underline"-->
   </div>
 </div>
@@ -29,14 +29,16 @@
 
 <div class="mb-4 mt-8 flex justify-between items-center">
 <h3 class="my-0">Shared with</h3>
-  <%= link_to "Add a user", new_login_share_path(@login) if @login.shareable_by?(current_user)  %>
+  <%= link_to "Add a user", new_login_share_path(@login) if current_user_login.shareable?  %>
 </div>
 <div class="flex flex-col gap-1 divide-y divide-gray-100">
   <% @login.user_logins.includes(:user).each do |user_login| %>
-    <div class="flex justify-between items-center">
+    <div class="grid grid-cols-3">
       <div><%= user_login.user.email %></div>
-      <div><%= user_login.role.titleize %></div>
-      <%= button_to "Remove", login_share_path(@login, user_login.user), method: :delete, data: {turbo_confirm: "Are you sure?"} if @login.shareable_by?(current_user) %>
+      <div class="text-right"><%= user_login.role.titleize %></div>
+      <div class="text-right">
+        <%= button_to "Remove", login_share_path(@login, user_login.user), method: :delete, data: {turbo_confirm: "Are you sure?"} if current_user_login.shareable? %>
+      </div>
     </div>
   <% end %>
 </div>

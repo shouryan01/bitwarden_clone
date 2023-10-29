@@ -1,8 +1,8 @@
 class LoginsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_login, except: [:index, :new, :create]
-  before_action :require_editor_permissions, only: [:edit, :update]
-  before_action :require_owner_permissions, only: [:destroy]
+  before_action :require_editable_permission, only: [:edit, :update]
+  before_action :require_deletable_permission, only: [:destroy]
 
   def index
     @logins = current_user.logins
@@ -51,11 +51,11 @@ class LoginsController < ApplicationController
     @login = current_user.logins.find(params[:id])
   end
 
-  def require_editor_permissions
-    redirect_to @login unless @login.editable_by?(current_user)
+  def require_editable_permission
+    redirect_to @login unless current_user_login.editable?
   end
 
-  def require_owner_permissions
-    redirect_to @login unless @login.editable_by?(current_user)
+  def require_deletable_permission
+    redirect_to @login unless current_user_login.deletable?
   end
 end

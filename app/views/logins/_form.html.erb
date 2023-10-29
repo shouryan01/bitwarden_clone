@@ -20,7 +20,7 @@
   </div>
   <div>
     <%= form.submit %>
-    <%= button_tag "Delete", form: "delete_login" %>
+    <%= button_tag "Delete", form: "delete_login" if form.object.persisted? && current_user_login.deletable? %>
   </div>
 <% end %>
 <%= form_with model: login, method: :delete, id: "delete_login", data: {turbo_confirm: "Are you sure?"} %>

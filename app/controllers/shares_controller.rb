@@ -1,6 +1,7 @@
 class SharesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_login
+  before_action :require_shareable_permission
 
   def new
     @user_login = UserLogin.new
@@ -33,5 +34,9 @@ class SharesController < ApplicationController
 
   def user_login_params
     params.require(:user_login).permit(:user_id, :role)
+  end
+
+  def require_shareable_permission
+    redirect_to @login unless current_user_login.shareable?
   end
 end
