@@ -10,10 +10,14 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <main class="prose mx-auto mt-28 px-5">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
+    <main class=" mx-auto bg-blue-600">
+      <div class="prose max-w-none px-5">
+        <%= render "shared_ui/flash" %>
+        <%= render "shared_ui/nav" %>
+        <div class="mx-auto prose">
+          <%= yield %>
+        </div>
+      </div>
     </main>
   </body>
 </html>

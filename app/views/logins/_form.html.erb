@@ -6,19 +6,19 @@
       </div>
     <% end %>
   <% end %>
-  <div>
+  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-  <div>
+  <div class="field">
     <%= form.label :username %>
     <%= form.text_field :username %>
   </div>
-  <div>
+  <div class="field">
     <%= form.label :password %>
     <%= form.text_field :password %>
   </div>
-  <div>
+  <div class="field">
     <%= form.submit %>
     <%= button_tag "Delete", form: "delete_login" if form.object.persisted? && current_user_login.deletable? %>
   </div>

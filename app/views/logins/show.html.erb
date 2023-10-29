@@ -1,4 +1,4 @@
-<%= link_to "🔙", root_path, class: "no-underline block mb-4 text-2xl" %>
+<%= link_to "🔙", logins_path, class: "no-underline block mb-4 text-2xl" %>
 <div class="flex justify-between items-center mb-10">
   <h1 class="mb-0">
     <%= @login.name %>
@@ -9,7 +9,7 @@
       <% end %>
   </h1>
   <div>
-    <%= link_to "Edit 🖊️", edit_login_path(@login) if current_user_login.editable? %>
+    <%= link_to "Edit 🖊️", edit_login_path(@login), class: "no-underline hover:underline" if current_user_login.editable? %>
 <!--    , class: "no-underline hover:underline"-->
   </div>
 </div>

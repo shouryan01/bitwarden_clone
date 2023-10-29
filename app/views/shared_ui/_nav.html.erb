@@ -1,0 +1,19 @@
+<nav class="flex justify-between bg-blue-600">
+  <div class="flex items-center gap-2">
+    <%= link_to root_path, class: "text-3xl no-underline text-white" do %>
+      <span class="font-bold">🛡️ bit</span><span class="font-extralight">warden</span>
+    <% end %>
+
+
+  </div>
+
+  <ul class="list-none flex items-center gap-2">
+    <% if user_signed_in? %>
+      <li><%= link_to "Profile", edit_user_registration_path %></li>
+      <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to "Sign In", new_user_session_path %></li>
+      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    <% end %>
+  </ul>
+</nav>
