@@ -16,8 +16,13 @@ class SharesController < ApplicationController
   end
 
   def destroy
-    @login.user_logins.where(user_id: params[:id]).destroy_all
-    redirect_to @login
+    user_login = @login.user_logins.find_by(user_id: params[:id])
+    user_login.destroy
+    if current_user.id == user_login.user_id
+      redirect_to root_path
+    else
+      redirect_to @login
+    end
   end
 
   private
