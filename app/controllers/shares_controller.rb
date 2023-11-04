@@ -20,7 +20,7 @@ class SharesController < ApplicationController
     user_login = @login.user_logins.find_by(user_id: params[:id])
     user_login.destroy
     if current_user.id == user_login.user_id
-      redirect_to root_path
+      redirect_to logins_path
     else
       redirect_to @login
     end
