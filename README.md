@@ -1,24 +1,27 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Screenshots
+## Landing Page
+![image](https://github.com/shouryan01/bitwarden_clone/assets/32345320/09918f27-0a8b-4525-91d9-2c360b1cd6fa)
 
-Things you may want to cover:
+## Authentication & User Management
+![image](https://github.com/shouryan01/bitwarden_clone/assets/32345320/b5750659-6d44-4acd-a09d-0bf7c607119e)
+![image](https://github.com/shouryan01/bitwarden_clone/assets/32345320/5cb45595-43ec-4c4f-9597-34a62430017c)
+![image](https://github.com/shouryan01/bitwarden_clone/assets/32345320/1d5af75d-2b3b-4994-9c93-9437ace605dd)
 
-* Ruby version
+## Adding Login
+![image](https://github.com/shouryan01/bitwarden_clone/assets/32345320/4d5ba540-0c28-4897-828e-06248d87268f)
 
-* System dependencies
+## Login Details
+![image](https://github.com/shouryan01/bitwarden_clone/assets/32345320/c3d2ec3e-95cd-4084-b603-643c530058ca)
 
-* Configuration
+## Edit Login
+![image](https://github.com/shouryan01/bitwarden_clone/assets/32345320/1f1b5975-ee56-4964-b949-dd28bb21963f)
 
-* Database creation
+## Share Login
+<img width="1463" alt="image" src="https://github.com/shouryan01/bitwarden_clone/assets/32345320/3cd29f79-2844-4a2b-a512-3b03c9a027f8">
 
-* Database initialization
+## Login Details
+![image](https://github.com/shouryan01/bitwarden_clone/assets/32345320/5ec3086a-cfff-4e79-bd20-d57999735f8e)
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Credits: I'd like to thank Go Rails and their excellent resources that helped me learn Ruby on Rails and build this app.
