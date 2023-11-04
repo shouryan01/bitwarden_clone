@@ -4,4 +4,8 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user_login
+
+  def after_sign_in_path_for(resource)
+    logins_path
+  end
 end

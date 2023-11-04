@@ -1,6 +1,19 @@
-<h1>The password manager trusted by millions</h1>
-
-
-<%= link_to logins_path, class: "text-2xl no-underline" do %>
-  <span class="font-bold">Logins</span>
-<% end %>
+<div class="grid grid-cols-2 mt-44 md:mt-40 lg:mt-36 xl:mt-24">
+  <div>
+    <div class="mx-2 sm:mx-3 md:mx-4 lg:mx-5 xl:mx-10 mt-10 sm:mt-12 md:mt-14 lg:mt-20">
+      <div class="font-light text-4xl md:text-4xl lg:text-5xl xl:text-6xl text-white">The password manager trusted by millions</div>
+      <div class="font-light hidden sm:text-xs sm:block md:text-sm lg:text-md sm:mt-2 md:mt-4 lg:mt-6 xl:mt-8 xl:text-lg text-white">At home, work, or on the go, Bitwarden secures all your passwords and sensitive information.</div>
+    </div>
+    <div class="mt-28 mx-2 sm:mx-3 md:mx-4 lg:mx-5 xl:mx-10">
+      <% if user_signed_in? %>
+        <%= link_to "Dashboard", logins_path, class: "font-bold text-white border border-4 rounded-full p-4 hover:bg-blue-800 shadow-lg hover:shadow-2xl no-underline" %>
+      <% end %>
+      </span>
+    </div>
+  </div>
+  <div>
+    <%= link_to logins_path, class: "text-2xl font-light no-underline" do %>
+      <img src="https://bitwarden.com/_gatsby/image/ca2b609b9ec14d07da43621491fc261a/8b8abd6dec62f0ce39d59b48fc68b625/homepage-hero-2.webp?eu=d78c57e3e5cffe8e0c6ca8813c23366eb53e5fa8aa0260853460b0a94efc9d8f24a01f5475902bb5286d5b88d3e642ef65cf2d6110e7d4dbc0e94df5e266fc0d00815abc62e22304582a91f7e4f557133ac11e59a1849c59aa6e23d1e2b5b4254f58182ffc2fbcd4e6f17120f0c0252df5effb7f3297e866b3560805885b24b827a5ce8b7701e98cee4ca9bcefff0190dbe0320620a4f3547a162f7719ed6efcd7ed55786d6100186bd1af5ec66790b0351437705a0b50f1643ed952fb6d3590e3a9f008df2e2ab5facf2e28d99efbc0bc4df9372eb28d78b480253a505a&a=w%3D800%26h%3D496%26fm%3Dwebp%26q%3D75&cd=2023-08-16T22%3A27%3A54.858Z" />
+    <% end %>
+  </div>
+</div>

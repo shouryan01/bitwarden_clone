@@ -1,6 +1,5 @@
-<h1>Share Password</h1>
-
-<%= render "form",
-           login: @login,
-           user_login: @user_login
-%>
+<%= link_to "<- Back", @login, class: "mb-4 hover:underline no-underline text-white hover:text-gray-400" %>
+<div class="flex justify-center max-w-md flex-col mx-auto w-96">
+  <div class="text-white flex justify-center text-4xl my-20">Share Login</div>
+  <%= render "form", login: @login, user_login: @user_login %>
+</div>

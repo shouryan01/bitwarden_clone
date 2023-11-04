@@ -1,44 +1,48 @@
-<%= link_to "🔙", logins_path, class: "no-underline block mb-4 text-2xl" %>
-<div class="flex justify-between items-center mb-10">
-  <h1 class="mb-0">
-    <%= @login.name %>
-    <%= link_to @login.name, target: :blank do %>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline-block text-blue-600">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-      </svg>
+<div>
+  <%= link_to "<- Back", logins_path, class: "mb-4 hover:underline no-underline text-white hover:text-gray-400" %>
+</div>
+<div class="flex justify-center max-w-3xl flex-col mx-auto">
+  <div class="flex justify-between items-center mb-10 mt-20">
+    <div class="mb-0 text-3xl md:text-4xl text-white flex">
+      <pre class="my-0 flex-grow p-1 px-4"><%= @login.name %></pre>
+      <%= link_to @login.name, target: :blank do %>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="hover:scale-150 duration-200 w-6 h-6 inline-block text-blue-600 mt-3 ml-3">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+        </svg>
       <% end %>
-  </h1>
-  <div>
-    <%= link_to "Edit 🖊️", edit_login_path(@login), class: "no-underline hover:underline" if current_user_login.editable? %>
-<!--    , class: "no-underline hover:underline"-->
-  </div>
-</div>
-
-<h3>Credentials</h3>
-<h6 class="text-sm mb-1">Username</h6>
-<div class="flex items-center gap-1">
-  <pre class="my-0 flex-grow"><code><%= @login.username %></code></pre>
-  <%= button_tag "Copy", class: "px-5 py-2.5 bg-gray-200 rounded", data: { controller: "clipboard", action: "click-> clipboard#copy", clipboard_content_value: @login.username} %>
-</div>
-
-<h6 class="text-sm mb-1 mt-4">Password</h6>
-<div class="flex items-center gap-1">
-  <pre class="my-0 flex-grow"><code><%= @login.password %></code></pre>
-  <%= button_tag "Copy", class: "px-5 py-2.5 bg-gray-200 rounded", data: { controller: "clipboard", action: "click-> clipboard#copy", clipboard_content_value: @login.password} %>
-</div>
-
-<div class="mb-4 mt-8 flex justify-between items-center">
-<h3 class="my-0">Shared with</h3>
-  <%= link_to "Add a user", new_login_share_path(@login) if current_user_login.shareable?  %>
-</div>
-<div class="flex flex-col gap-1 divide-y divide-gray-100">
-  <% @login.user_logins.includes(:user).each do |user_login| %>
-    <div class="grid grid-cols-3">
-      <div><%= user_login.user.email %></div>
-      <div class="text-right"><%= user_login.role.titleize %></div>
-      <div class="text-right">
-        <%= button_to "Remove", login_share_path(@login, user_login.user), method: :delete, data: {turbo_confirm: "Are you sure?"} if current_user_login.shareable? %>
-      </div>
     </div>
-  <% end %>
+    <div>
+      <%= link_to "Edit 🖊️", edit_login_path(@login), class: "no-underline hover:underline text-white hover:text-gray-400" if current_user_login.editable? %>
+  <!--    , class: "no-underline hover:underline"-->
+    </div>
+  </div>
+
+  <h3 class="text-white text-3xl font-black">Credentials</h3>
+  <h6 class="text-sm mb-1 text-white">Username</h6>
+  <div class="flex items-center gap-1">
+    <pre class="my-0 flex-grow"><code><%= @login.username %></code></pre>
+    <%= button_tag "Copy", class: "px-5 py-2.5 rounded-md bg-gray-100 hover:bg-gray-400", data: { controller: "clipboard", action: "click-> clipboard#copy", clipboard_content_value: @login.username} %>
+  </div>
+
+  <h6 class="text-sm mb-1 mt-4 text-white">Password</h6>
+  <div class="flex items-center gap-1">
+    <pre class="my-0 flex-grow"><code><%= @login.password %></code></pre>
+    <%= button_tag "Copy", class: "px-5 py-2.5 rounded-md bg-gray-200 hover:bg-gray-400", data: { controller: "clipboard", action: "click-> clipboard#copy", clipboard_content_value: @login.password} %>
+  </div>
+
+  <div class="mb-4 mt-8 flex justify-between items-center border-b-2 border-double">
+    <h3 class="my-0 text-white text-2xl">Shared with</h3>
+    <%= link_to "Add a user", new_login_share_path(@login), class: "text-white no-underline hover:underline hover:text-gray-400" if current_user_login.shareable?  %>
+  </div>
+  <div class="flex flex-col gap-1 divide-y divide-gray-100 divide-y divide-dotted">
+    <% @login.user_logins.includes(:user).each do |user_login| %>
+      <div class="grid grid-cols-3 text-white">
+        <div><%= user_login.user.email %></div>
+        <div class="text-right "><%= user_login.role.titleize %></div>
+        <div class="text-right hover:text-red-500">
+          <%= button_to "Remove", login_share_path(@login, user_login.user), method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "font-bold text-red-500 hover:bg-red-900 hover:shadow-2xl hover:rounded-full px-2 no-underline" if current_user_login.shareable? %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -6,21 +6,23 @@
       </div>
     <% end %>
   <% end %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field mt-20">
+    <%= form.label :name, class: "text-white" %>
+    <%= form.text_field :name, class: "rounded-full shadow-2xl w-full" %>
   </div>
   <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
+    <%= form.label :username, class: "text-white" %>
+    <%= form.text_field :username, class: "rounded-full shadow-2xl w-full" %>
   </div>
   <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
+    <%= form.label :password, class: "text-white" %>
+    <%= form.text_field :password, class: "rounded-full shadow-2xl w-full" %>
   </div>
-  <div class="field">
+  <div class="field flex justify-center text-white mt-14">
     <%= form.submit %>
-    <%= button_tag "Delete", form: "delete_login" if form.object.persisted? && current_user_login.deletable? %>
+  </div>
+  <div class="field flex justify-center">
+    <%= button_tag "Delete", form: "delete_login", class: "font-bold text-red-500 hover:bg-red-900 mt-2 hover:shadow-2xl hover:rounded-full px-4 py-2 no-underline" if form.object.persisted? && current_user_login.deletable? %>
   </div>
 <% end %>
 <%= form_with model: login, method: :delete, id: "delete_login", data: {turbo_confirm: "Are you sure?"} %>

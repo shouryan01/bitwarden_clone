@@ -38,7 +38,7 @@ class LoginsController < ApplicationController
 
   def destroy
     @login.destroy
-    redirect_to root_path
+    redirect_to logins_path
   end
 
   private

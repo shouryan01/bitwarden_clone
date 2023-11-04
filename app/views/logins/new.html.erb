@@ -1,2 +1,9 @@
-<h1>New Login</h1>
-<%= render "form", login: @login %>
+<div>
+  <%= link_to "<- Back", logins_path, class: "mb-4 hover:underline no-underline text-white hover:text-gray-400" %>
+</div>
+<div class="flex justify-center items-center">
+  <div class="w-96 mt-20">
+    <div class="text-4xl mb-14 flex justify-center text-white">New Login</div>
+    <%= render "form", login: @login %>
+  </div>
+</div>

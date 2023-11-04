@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag asset_path('favicon.ico') %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <main class=" mx-auto bg-blue-600">
-      <div class="prose max-w-none px-5">
+    <main class=" mx-auto bg-blue-600 min-h-screen">
+      <div class="prose max-w-full px-5">
         <%= render "shared_ui/flash" %>
         <%= render "shared_ui/nav" %>
-        <div class="mx-auto prose">
-          <%= yield %>
-        </div>
+        <%= yield %>
       </div>
     </main>
   </body>

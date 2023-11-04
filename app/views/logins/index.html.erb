@@ -1,8 +1,10 @@
-<div class="flex justify-between items-center">
-  <h1 class="mb-0">All Logins</h1>
-  <%= link_to "➕", new_login_path, class: "no-underline w-10 h-10 pt-1.5 pl-3 rounded-full hover:bg-gray-200 hover:scale-125 duration-200" %>
-</div>
-<br /><br />
-<div>
-  <%= render @logins %>
+<div class="flex justify-center max-w-xl flex-col mx-auto">
+  <div class="flex justify-between items-center">
+    <h1 class="mb-0 text-white mt-28">All Logins</h1>
+    <%= link_to "+", new_login_path, class: "no-underline text-4xl hover:scale-150 duration-200 text-white" %>
+  </div>
+  <br /><br />
+  <div class="max-w-4xl">
+    <%= render @logins %>
+  </div>
 </div>
