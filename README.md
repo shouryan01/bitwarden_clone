@@ -1,3 +1,30 @@
+# Bitwarden Password Manager Clone
+
+I built an open-source password manager that aims to replicate the core functionality of Bitwarden, built using Ruby on Rails. It provides a secure and convenient way to store, manage, and share your passwords and sensitive information. The main goal of this repository was to learn Ruby on Rails and then build a full-stack app using it.
+- Secure Encryption: Uses state-of-the-art encryption to ensure your data is protected
+- CRUD logins and personal accounts easily
+- Securely share logins with trusted contacts
+
+## Demo
+[Here is a YouTube demo!](https://www.youtube.com/watch?v=r7y6w5B0i5c)
+
+## Getting Started
+
+Clone the repository:
+```
+git clone https://github.com/shouryan01/bitwarden_clone.git
+```
+Install and start a Postgres database. I recommend [this one](https://postgresapp.com/).
+
+Open the cloned repo and then run these commands one by one:
+```
+bundle install
+rails db:create
+rails db:migrate
+bin/dev
+```
+
+Open your web browser and go to http://localhost:3000
 
 # Screenshots
 ## Landing Page
